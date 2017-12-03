@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.zhin.web.weburine.dao.SendDetectionMapper" >
+  <resultMap id="BaseResultMap" type="me.zhin.web.weburine.entity.SendDetection" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="doctor" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="checker" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="verifyer" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="send_detection_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="update_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="urine_id" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, doctor, checker, verifyer, send_detection_time, create_time, update_time, urine_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from send_detection
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from send_detection
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="me.zhin.web.weburine.entity.SendDetection" >
+    insert into send_detection (id, doctor, checker, 
+      verifyer, send_detection_time, create_time, 
+      update_time, urine_id)
+    values (#{id,jdbcType=INTEGER}, #{doctor,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, 
+      #{verifyer,jdbcType=VARCHAR}, #{sendDetectionTime,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=VARCHAR}, #{urineId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="me.zhin.web.weburine.entity.SendDetection" >
+    insert into send_detection
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="doctor != null" >
+        doctor,
+      </if>
+      <if test="checker != null" >
+        checker,
+      </if>
+      <if test="verifyer != null" >
+        verifyer,
+      </if>
+      <if test="sendDetectionTime != null" >
+        send_detection_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="urineId != null" >
+        urine_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="doctor != null" >
+        #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null" >
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyer != null" >
+        #{verifyer,jdbcType=VARCHAR},
+      </if>
+      <if test="sendDetectionTime != null" >
+        #{sendDetectionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="urineId != null" >
+        #{urineId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="me.zhin.web.weburine.entity.SendDetection" >
+    update send_detection
+    <set >
+      <if test="doctor != null" >
+        doctor = #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null" >
+        checker = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyer != null" >
+        verifyer = #{verifyer,jdbcType=VARCHAR},
+      </if>
+      <if test="sendDetectionTime != null" >
+        send_detection_time = #{sendDetectionTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="urineId != null" >
+        urine_id = #{urineId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="me.zhin.web.weburine.entity.SendDetection" >
+    update send_detection
+    set doctor = #{doctor,jdbcType=VARCHAR},
+      checker = #{checker,jdbcType=VARCHAR},
+      verifyer = #{verifyer,jdbcType=VARCHAR},
+      send_detection_time = #{sendDetectionTime,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      urine_id = #{urineId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

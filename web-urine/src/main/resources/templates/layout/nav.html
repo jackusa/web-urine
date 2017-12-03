@@ -1,0 +1,68 @@
+<#macro nav>
+  <nav class="light-blue lighten-1" role="navigation">
+
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><@spring.message "urine.analyzer"/></a>
+
+      <ul class="nav-items left hide-on-med-and-down">
+        <li><a href="/data"><@spring.message "urine.data"/></a></li>
+        <li><a href="/detail"><@spring.message "urine.analyzer.detail"/></a></li>
+        <li><a href="/about"><@spring.message "site.about"/></a></li>
+      </ul>
+
+      <ul class="right hide-on-med-and-down">
+
+        <#if isLogin!false>
+          <li><a href="/signOut"><i class="material-icons left">exit_to_app</i>退出</a></li>
+         <#else>
+          <li><a href="/login"><i class="material-icons left">forward</i><@spring.message "site.login"/></a></li>
+          <li><a href="/signUp"><i class="material-icons left">person_add</i><@spring.message "site.signUp"/></a></li>
+        </#if>
+
+
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="lang-dropdown">
+            <i class="material-icons center" aria-hidden="true">language</i>
+          </a>
+        </li>
+      </ul>
+
+      <ul id="lang-dropdown" class="dropdown-content">
+        <li><a href="?lang=en_US">English</a></li>
+        <li><a href="?lang=zh_CN">中国</a></li>
+      </ul>
+
+      <#if isLogin!false>
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/data"><@spring.message "urine.data"/></a></li>
+          <li><a href="/detail"><@spring.message "urine.analyzer.detail"/></a></li>
+          <li><a href="/about"><@spring.message "site.about"/></a></li>
+          <li><a href="/signOut">退出</a></li>
+        </ul>
+      <#else>
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/login"><@spring.message "site.login"/></a></li>
+          <li><a href="/signUp"><@spring.message "site.signUp"/></a></li>
+          <li><a href="/data"><@spring.message "urine.data"/></a></li>
+          <li><a href="/detail"><@spring.message "urine.analyzer.detail"/></a></li>
+          <li><a href="/about"><@spring.message "site.about"/></a></li>
+        </ul>
+      </#if>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</#macro>
+
+
+
+
+
+
+
+
+
+
+
+
+

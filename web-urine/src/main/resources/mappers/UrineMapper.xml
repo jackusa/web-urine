@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.zhin.web.weburine.dao.UrineMapper" >
+  <resultMap id="BaseResultMap" type="me.zhin.web.weburine.entity.Urine" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="that_day_no" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="leu" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="glu" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="mca" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bil" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ph" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sg" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ket" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pro" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="nit" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="uro" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cre" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="bld" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ca" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="vc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cal" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="paper_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="update_time" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="detect_date" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="send_detection_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="urine_user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="time" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, that_day_no, leu, glu, mca, bil, ph, sg, ket, pro, nit, uro, cre, bld, ca, vc, 
+    cal, paper_type, create_time, update_time, user_id, detect_date, send_detection_id, 
+    urine_user_id, time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from urine
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from urine
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="me.zhin.web.weburine.entity.Urine" >
+    insert into urine (id, that_day_no, leu, 
+      glu, mca, bil, ph, 
+      sg, ket, pro, nit, 
+      uro, cre, bld, ca, 
+      vc, cal, paper_type, 
+      create_time, update_time, user_id, 
+      detect_date, send_detection_id, urine_user_id, 
+      time)
+    values (#{id,jdbcType=INTEGER}, #{thatDayNo,jdbcType=VARCHAR}, #{leu,jdbcType=VARCHAR}, 
+      #{glu,jdbcType=VARCHAR}, #{mca,jdbcType=VARCHAR}, #{bil,jdbcType=VARCHAR}, #{ph,jdbcType=VARCHAR}, 
+      #{sg,jdbcType=VARCHAR}, #{ket,jdbcType=VARCHAR}, #{pro,jdbcType=VARCHAR}, #{nit,jdbcType=VARCHAR}, 
+      #{uro,jdbcType=VARCHAR}, #{cre,jdbcType=VARCHAR}, #{bld,jdbcType=VARCHAR}, #{ca,jdbcType=VARCHAR}, 
+      #{vc,jdbcType=VARCHAR}, #{cal,jdbcType=VARCHAR}, #{paperType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{detectDate,jdbcType=VARCHAR}, #{sendDetectionId,jdbcType=INTEGER}, #{urineUserId,jdbcType=INTEGER}, 
+      #{time,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="me.zhin.web.weburine.entity.Urine" >
+    insert into urine
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="thatDayNo != null" >
+        that_day_no,
+      </if>
+      <if test="leu != null" >
+        leu,
+      </if>
+      <if test="glu != null" >
+        glu,
+      </if>
+      <if test="mca != null" >
+        mca,
+      </if>
+      <if test="bil != null" >
+        bil,
+      </if>
+      <if test="ph != null" >
+        ph,
+      </if>
+      <if test="sg != null" >
+        sg,
+      </if>
+      <if test="ket != null" >
+        ket,
+      </if>
+      <if test="pro != null" >
+        pro,
+      </if>
+      <if test="nit != null" >
+        nit,
+      </if>
+      <if test="uro != null" >
+        uro,
+      </if>
+      <if test="cre != null" >
+        cre,
+      </if>
+      <if test="bld != null" >
+        bld,
+      </if>
+      <if test="ca != null" >
+        ca,
+      </if>
+      <if test="vc != null" >
+        vc,
+      </if>
+      <if test="cal != null" >
+        cal,
+      </if>
+      <if test="paperType != null" >
+        paper_type,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="detectDate != null" >
+        detect_date,
+      </if>
+      <if test="sendDetectionId != null" >
+        send_detection_id,
+      </if>
+      <if test="urineUserId != null" >
+        urine_user_id,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="thatDayNo != null" >
+        #{thatDayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="leu != null" >
+        #{leu,jdbcType=VARCHAR},
+      </if>
+      <if test="glu != null" >
+        #{glu,jdbcType=VARCHAR},
+      </if>
+      <if test="mca != null" >
+        #{mca,jdbcType=VARCHAR},
+      </if>
+      <if test="bil != null" >
+        #{bil,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null" >
+        #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="sg != null" >
+        #{sg,jdbcType=VARCHAR},
+      </if>
+      <if test="ket != null" >
+        #{ket,jdbcType=VARCHAR},
+      </if>
+      <if test="pro != null" >
+        #{pro,jdbcType=VARCHAR},
+      </if>
+      <if test="nit != null" >
+        #{nit,jdbcType=VARCHAR},
+      </if>
+      <if test="uro != null" >
+        #{uro,jdbcType=VARCHAR},
+      </if>
+      <if test="cre != null" >
+        #{cre,jdbcType=VARCHAR},
+      </if>
+      <if test="bld != null" >
+        #{bld,jdbcType=VARCHAR},
+      </if>
+      <if test="ca != null" >
+        #{ca,jdbcType=VARCHAR},
+      </if>
+      <if test="vc != null" >
+        #{vc,jdbcType=VARCHAR},
+      </if>
+      <if test="cal != null" >
+        #{cal,jdbcType=VARCHAR},
+      </if>
+      <if test="paperType != null" >
+        #{paperType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="detectDate != null" >
+        #{detectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sendDetectionId != null" >
+        #{sendDetectionId,jdbcType=INTEGER},
+      </if>
+      <if test="urineUserId != null" >
+        #{urineUserId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="me.zhin.web.weburine.entity.Urine" >
+    update urine
+    <set >
+      <if test="thatDayNo != null" >
+        that_day_no = #{thatDayNo,jdbcType=VARCHAR},
+      </if>
+      <if test="leu != null" >
+        leu = #{leu,jdbcType=VARCHAR},
+      </if>
+      <if test="glu != null" >
+        glu = #{glu,jdbcType=VARCHAR},
+      </if>
+      <if test="mca != null" >
+        mca = #{mca,jdbcType=VARCHAR},
+      </if>
+      <if test="bil != null" >
+        bil = #{bil,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null" >
+        ph = #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="sg != null" >
+        sg = #{sg,jdbcType=VARCHAR},
+      </if>
+      <if test="ket != null" >
+        ket = #{ket,jdbcType=VARCHAR},
+      </if>
+      <if test="pro != null" >
+        pro = #{pro,jdbcType=VARCHAR},
+      </if>
+      <if test="nit != null" >
+        nit = #{nit,jdbcType=VARCHAR},
+      </if>
+      <if test="uro != null" >
+        uro = #{uro,jdbcType=VARCHAR},
+      </if>
+      <if test="cre != null" >
+        cre = #{cre,jdbcType=VARCHAR},
+      </if>
+      <if test="bld != null" >
+        bld = #{bld,jdbcType=VARCHAR},
+      </if>
+      <if test="ca != null" >
+        ca = #{ca,jdbcType=VARCHAR},
+      </if>
+      <if test="vc != null" >
+        vc = #{vc,jdbcType=VARCHAR},
+      </if>
+      <if test="cal != null" >
+        cal = #{cal,jdbcType=VARCHAR},
+      </if>
+      <if test="paperType != null" >
+        paper_type = #{paperType,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="detectDate != null" >
+        detect_date = #{detectDate,jdbcType=VARCHAR},
+      </if>
+      <if test="sendDetectionId != null" >
+        send_detection_id = #{sendDetectionId,jdbcType=INTEGER},
+      </if>
+      <if test="urineUserId != null" >
+        urine_user_id = #{urineUserId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="me.zhin.web.weburine.entity.Urine" >
+    update urine
+    set that_day_no = #{thatDayNo,jdbcType=VARCHAR},
+      leu = #{leu,jdbcType=VARCHAR},
+      glu = #{glu,jdbcType=VARCHAR},
+      mca = #{mca,jdbcType=VARCHAR},
+      bil = #{bil,jdbcType=VARCHAR},
+      ph = #{ph,jdbcType=VARCHAR},
+      sg = #{sg,jdbcType=VARCHAR},
+      ket = #{ket,jdbcType=VARCHAR},
+      pro = #{pro,jdbcType=VARCHAR},
+      nit = #{nit,jdbcType=VARCHAR},
+      uro = #{uro,jdbcType=VARCHAR},
+      cre = #{cre,jdbcType=VARCHAR},
+      bld = #{bld,jdbcType=VARCHAR},
+      ca = #{ca,jdbcType=VARCHAR},
+      vc = #{vc,jdbcType=VARCHAR},
+      cal = #{cal,jdbcType=VARCHAR},
+      paper_type = #{paperType,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      detect_date = #{detectDate,jdbcType=VARCHAR},
+      send_detection_id = #{sendDetectionId,jdbcType=INTEGER},
+      urine_user_id = #{urineUserId,jdbcType=INTEGER},
+      time = #{time,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectUrineByDateAndNo" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM urine
+    WHERE that_day_no = #{thatDayNo}
+          AND detect_date = #{detectionDate}
+  </select>
+
+  <select id="selectUrineByUserId" resultMap="BaseResultMap" parameterType="int">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM urine
+    WHERE user_id = #{userId}
+  </select>
+
+</mapper>

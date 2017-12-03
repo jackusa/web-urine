@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <#assign title><@spring.message 'site.title'/></#assign>
+  <@headTemplate.head title/>
+</head>
+<body>
+<@navTemplate.nav />
+<@floatTemplate.float_btn />
+
+<main>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br/><br/>
+      <h1 class="header center orange-text"><@spring.message "urine.analyzer"/></h1>
+      <div class="row center">
+        <h5 class="header col s12 light"><@spring.message "urine.analyzer.intent"/></h5>
+      </div>
+      <div class="row center">
+        <a href="/detail" class="btn-large waves-effect waves-light orange">
+          <@spring.message "urine.analyzer.understand.device"/>
+        </a>
+        <a href="#!" class="btn-large waves-effect waves-light orange">
+          <@spring.message "urine.analyzer.buy.device"/>
+        </a>
+      </div>
+
+      <br/><br/>
+
+    </div>
+  </div>
+
+  <div class="container ">
+
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center"><@spring.message "urine.analyzer.advantage1"/></h5>
+            <p class="light"><@spring.message "urine.analyzer.advantage1.detail"/></p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center"><@spring.message "urine.analyzer.advantage2"/></h5>
+            <p class="light"><@spring.message "urine.analyzer.advantage2.detail"/></p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">attach_money</i></h2>
+            <h5 class="center"><@spring.message "urine.analyzer.advantage3"/></h5>
+            <p class="light"><@spring.message "urine.analyzer.advantage3.detail"/></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+</main>
+
+
+<@footerTemplate.footer />
+<@footerTemplate.scripts />
+</body>
+</html>

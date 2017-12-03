@@ -1,0 +1,15 @@
+<#macro qrcode name, weixin_img, weixin_id>
+  <div class="mdui-dialog" id=${weixin_id}>
+    <div class="mdui-dialog-title">${name}微信二维码</div>
+    <div class="center">
+      <img src=${weixin_img} style="width: 250px; height: 250px" class="center" alt="${name}微信二维码">
+    </div>
+    <div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+      <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>已扫描</button>
+    </div>
+  </div>
+</#macro>
+
+
+

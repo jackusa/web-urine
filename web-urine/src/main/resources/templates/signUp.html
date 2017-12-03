@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <#assign title><@spring.message 'site.signUp'/></#assign>
+  <@headTemplate.head title/>
+</head>
+<body>
+<@navTemplate.nav />
+<@floatTemplate.float_btn />
+
+<main>
+
+  <div class="container">
+    <div class="section">
+      <div class="row center-align">
+
+        <div class="col s12 m4 offset-m2">
+          <h4><@spring.message 'site.signUp'/></h4>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="username" type="text" name="username" class="validate">
+              <label for="username">
+                <@spring.message 'username'/>
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="text" name="email" class="validate">
+              <label for="email">
+                <@spring.message 'email'/> / <@spring.message 'phone'/>
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="text" name="password" class="validate">
+              <label for="password">
+                <@spring.message 'password'/>
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password2" type="text" name="password2" class="validate">
+              <label for="password2">
+                <@spring.message 'password2'/>
+              </label>
+            </div>
+          </div>
+
+          <!--<input type="text" name="username" placeholder="<@spring.message 'username'/>"/>-->
+          <!--<input type="email" name="email" placeholder="<@spring.message 'email'/>"/>-->
+          <!--<input type="number" name="phone" placeholder="<@spring.message 'phone'/>"/>-->
+          <!--<input type="password" name="password" placeholder="<@spring.message 'password'/>"/>-->
+          <!--<input type="password" name="password2" placeholder="<@spring.message 'password2'/>"/>-->
+
+          <button class="waves-effect waves-light btn" id="create-user" style="margin-bottom: 30px">
+            <@spring.message 'site.signUp'/>
+          </button>
+
+        </div>
+
+        <div class="center center-align singUp-right col s12 m4">
+          <h4 class="white-text" style="padding-bottom: 50px"><@spring.message 'social.network'/></h4>
+          <a class="social-signIn btn red"><@spring.message 'social.qq'/></a>
+          <a class="social-signIn btn blue"><@spring.message 'social.wechat'/></a>
+          <a class="social-signIn btn green"><@spring.message 'social.google'/></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="mdui-dialog mdui-dialog-confirm mdui-dialog-open" id="signUp-success">
+  <div class="mdui-dialog-title">注册成功</div>
+  <div class="mdui-dialog-content" style="height: 46.4px;">恭喜您，注册成功</div>
+  <div class="mdui-dialog-actions ">
+    <a href="javascript:void(0)" class="mdui-btn mdui-ripple mdui-text-color-primary ">取消</a>
+    <a href="login.html" class="mdui-btn mdui-ripple mdui-text-color-primary ">去登录</a></div>
+</div>
+
+
+<@footerTemplate.footer />
+<@footerTemplate.scripts />
+</body>
+</html>

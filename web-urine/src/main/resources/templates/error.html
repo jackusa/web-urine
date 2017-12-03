@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <@headTemplate.head 'error'/>
+</head>
+<body>
+<div class="row">
+  <h1 class="indigo-text center">您访问的链接出了点问题，请返回</h1>
+
+  <!-- 隐藏对用户无意义的异常 -->
+  <div style="display: none">
+    <h1 class="indigo-text center" hidden>${error}</h1>
+    <h5 class="col s12 center" hidden>
+      ${message}
+    </h5>
+  </div>
+
+</div>
+</body>
+</html>

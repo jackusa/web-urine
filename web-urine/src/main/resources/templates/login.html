@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <#assign title><@spring.message 'site.login'/></#assign>
+  <@headTemplate.head title/>
+</head>
+<body>
+<@navTemplate.nav />
+<@floatTemplate.float_btn />
+
+<main>
+
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <!--<form action="/authentication/form" method="get">
+
+          <div class="col s12 m4 offset-m4">
+            <h4><@spring.message 'site.login'/></h4>
+
+            <input type="text" name="username"
+                   placeholder="<@spring.message 'username'/> / <@spring.message 'email'/> / <@spring.message 'phone'/>"/>
+            <input type="password" name="password" placeholder="<@spring.message 'password'/>"/>
+
+            <input class="col s8 m8" type="text" name="imageCode" placeholder="验证码"/>
+            <img class="col s4 m4 valign-wrapper" src="/code/image">
+
+            <input class="waves-effect waves-light btn" type="submit" value="登录" style="margin: 25px"/>
+
+            <div>
+              <a class="social-signIn btn red"><@spring.message 'social.qq'/></a>
+              <a class="social-signIn btn blue"><@spring.message 'social.wechat'/></a>
+              <a class="social-signIn btn green"><@spring.message 'social.google'/></a>
+            </div>
+
+          </div>
+        </form>-->
+
+
+        <div class="row">
+          <div class="col s12 m6 offset-m3 center-align">
+            <h4><@spring.message 'site.login'/></h4>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="username" type="text" name="username" class="validate">
+                <label for="username">
+                  <@spring.message 'username'/> / <@spring.message 'email'/> / <@spring.message 'phone'/>
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password"><@spring.message 'password'/></label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">offline_pin</i>
+                <input id="imageCode" name="imageCode" type="text" class="validate">
+                <label for="imageCode">验证码</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <img class="col s3 m3" style="margin: -20px 0 0 30px" src="/code/image">
+            </div>
+
+            <div class="row valign-wrapper">
+              <p class="left" style="margin: 0 15px 0 45px">
+                <input type="checkbox" class="filled-in" name="remember-me" value="" id="filled-in-box"  />
+                <label for="filled-in-box">记住我</label>
+              </p>
+            </div>
+
+
+            <div class="row center">
+              <div class="col s3 valign-wrapper">
+                <a class="waves-effect tooltipped waves-light btn col s10" id="login-btn"
+                   data-position="bottom" data-delay="50" data-tooltip="使用账号登录">
+                  <@spring.message 'site.login'/>
+                </a>
+              </div>
+              <div class="col s3 valign-wrapper">
+                <a class="btn tooltipped col s10 red" data-position="bottom" data-delay="50"
+                   data-tooltip="<@spring.message 'social.qq'/>">
+                  <i class="fa fa-qq fa-3px"></i>
+                </a>
+              </div>
+              <div class="col s3 valign-wrapper">
+                <a class="btn tooltipped col s10 green" data-position="bottom" data-delay="50"
+                   data-tooltip="<@spring.message 'social.wechat'/>">
+                  <i class="fa fa-weixin fa-3px"></i>
+                </a>
+              </div>
+              <div class="col s3 valign-wrapper">
+                <a class="btn tooltipped col s10 blue" data-position="bottom" data-delay="50"
+                   data-tooltip="<@spring.message 'social.google'/>">
+                  <i class="fa fa-google fa-3px"></i>
+                </a>
+              </div>
+
+
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<@footerTemplate.footer />
+<@footerTemplate.scripts />
+</body>
+</html>
