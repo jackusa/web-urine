@@ -18,20 +18,20 @@
           <div class="card blue-grey darken-1">
             <form action="/urines" method="get">
               <div class="card-content white-text">
-                <span>当日号</span>
+                <span><@spring.message 'that.day.no'/></span>
                 <label>
                   <input type="text" value="${(thatDayNo)!}" name="thatDayNo" class="input-field white-text">
                 </label>
                 <br/>
-                <span>检测日期</span>
+                <span><@spring.message 'detect.date'/></span>
                 <label>
                   <input type="text" value="${(detectionDate)!}" name="detectionDate" class="input-field white-text">
                 </label>
               </div>
 
               <div class="card-action">
-                <input type="submit" class="btn white-text" value="查询"/>
-                <input type="button" id="save-urine-data" class="btn white-text" value="保存" />
+                <input type="submit" class="btn white-text" value="<@spring.message 'query'/>"/>
+                <input type="button" id="save-urine-data" class="btn white-text" value="<@spring.message 'save'/>" />
               </div>
             </form>
 
@@ -63,7 +63,7 @@
           <table class="striped centered">
             <caption>
               <#if hasUrineData?exists && !hasUrineData>
-                <h5 class="red-text">不存在此尿液检测</h5>
+                <h5 class="red-text"><@spring.message 'not.exist'/></h5>
               </#if>
             </caption>
             <thead>
@@ -152,7 +152,25 @@
 
   });
 
+  $('#save-urine-data').click(function () {
 
+    $.ajax({
+      url: '/saves/' + '${user.id}',
+      type: 'post',
+      data: {
+        thatDayNo: $("input[name='thatDayNo']").val(),
+        detectionDate: $("input[name='detectionDate']").val()
+      },
+      success: function (result) {
+        console.log(result);
+        if (result.status === 0) {
+          mdui.alert("保存成功", "保存成功");
+        } else {
+          mdui.alert("不存在此尿液检测", "保存失败");
+        }
+      }
+    });
+  });
 
 
 </script>

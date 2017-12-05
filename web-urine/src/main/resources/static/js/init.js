@@ -107,25 +107,6 @@
 
 
 
-  $('#save-urine-data').click(function () {
-
-    $.ajax({
-      url: '/saves/' + "${user.id}",
-      type: 'post',
-      data: {
-        thatDayNo: $("input[name='thatDayNo']").val(),
-        detectionDate: $("input[name='detectionDate']").val()
-      },
-      success: function (result) {
-        console.log(result);
-        if (result.status === 0) {
-          mdui.alert("保存成功", "保存成功");
-        } else {
-          mdui.alert("不存在此尿液检测", "保存失败");
-        }
-      }
-    });
-  });
 
 
 
