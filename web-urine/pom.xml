@@ -5,7 +5,7 @@
 
   <groupId>me.zhin.web</groupId>
   <artifactId>web-urine</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>web-urine</name>
@@ -13,7 +13,7 @@
 
   <parent>
     <groupId>me.zhin.security</groupId>
-    <artifactId>zhin-security</artifactId>
+    <artifactId>urine-security</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
@@ -21,8 +21,8 @@
   <dependencies>
     <dependency>
       <groupId>me.zhin.security</groupId>
-      <artifactId>zhin-security-browser</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <artifactId>security-browser</artifactId>
+      <version>${zhin.security.version}</version>
     </dependency>
 
     <dependency>
