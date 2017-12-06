@@ -6,7 +6,8 @@
   });
 
 
-  $('.dropdown-button').dropdown({
+  var lang = $('.dropdown-button');
+  lang.dropdown({
       inDuration: 600,
       outDuration: 525,
       hover: true,
@@ -14,11 +15,37 @@
     }
   );
 
-  var isFirst = true;
+  var isFirstClickLang = true;
+  var b = true;
+  lang.click(function () {
+    if ((screen.width <= 600) && isFirstClickLang) {
+      isFirstClickLang = false;
+      lang.dropdown({
+          inDuration: 600,
+          outDuration: 525,
+          hover: false,
+          belowOrigin: true
+        }
+      );
+    }
+
+    if (b) {
+      lang.dropdown('open');
+      b = false;
+    } else {
+      lang.dropdown('close');
+      b = true;
+    }
+
+  });
+
+
+
+  var isFirstClickFab = true;
   var fab = $(".fixed-action-btn");
   fab.click(function () {
-    if ((screen.width <= 600) && isFirst) {
-      isFirst = false;
+    if ((screen.width <= 600) && isFirstClickFab) {
+      isFirstClickFab = false;
       fab.closeFAB();
       fab.addClass('click-to-toggle');
       $(".btn-floating").addClass('waves-effect')
