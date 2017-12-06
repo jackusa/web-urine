@@ -10,34 +10,10 @@
   lang.dropdown({
       inDuration: 600,
       outDuration: 525,
-      hover: true,
+      hover: false,
       belowOrigin: true
     }
   );
-
-  var isFirstClickLang = true;
-  var b = true;
-  lang.click(function () {
-    if ((screen.width <= 600) && isFirstClickLang) {
-      isFirstClickLang = false;
-      lang.dropdown({
-          inDuration: 600,
-          outDuration: 525,
-          hover: false,
-          belowOrigin: true
-        }
-      );
-    }
-
-    if (b) {
-      lang.dropdown('open');
-      b = false;
-    } else {
-      lang.dropdown('close');
-      b = true;
-    }
-
-  });
 
 
 
