@@ -98,7 +98,7 @@
 <div class="mdui-dialog" id="update-info">
   <div class="mdui-dialog-title"><@spring.message 'account.update'/></div>
   <div class="mdui-dialog-content">
-    <@spring.message 'account.username'/>：<input type="text" name="username" placeholder="${user.username}" disabled>
+    <@spring.message 'account.username'/>：<input type="text" name="username" placeholder="${(user.username)!}" disabled>
     <@spring.message 'account.email'/>：<input type="text" name="email" value="" placeholder="${(user.email)!}">
     <@spring.message 'account.phone'/>：<input type="number" name="phone" value="" placeholder="${(user.phone)!}">
     <@spring.message 'account.age'/>：<input type="text" name="age" placeholder="${(user.age)!}">
@@ -142,7 +142,7 @@
 
     console.log(param);
     $.ajax({
-      url: '/users/' + "${user.id}",
+      url: '/users/' + "${(user.id)!}",
       type: 'post',
       data: param,
       success: function () {
