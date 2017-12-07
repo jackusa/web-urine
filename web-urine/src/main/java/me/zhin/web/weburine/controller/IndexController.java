@@ -73,9 +73,10 @@ public class IndexController {
     if (urineList.size() > 0) {
       // 目前只显示一条数据
       for(int i = 0; i < 1; i++) {
-        urineUser = iUrineUserService.selectUrineUser(urineList.get(i).getUrineUserId());
-        sendDetection = iSendDetectionService.selectSendDetection(urineList.get(i).getSendDetectionId());
-        String[] urines = urineList.get(i).getAllValue();
+        int lastIndex = urineList.size()-1;
+        urineUser = iUrineUserService.selectUrineUser(urineList.get(lastIndex).getUrineUserId());
+        sendDetection = iSendDetectionService.selectSendDetection(urineList.get(lastIndex).getSendDetectionId());
+        String[] urines = urineList.get(lastIndex).getAllValue();
         String[] urineNames = Urine.getAllName();
         Map<String, String> urineMap = new HashMap<>(urines.length);
 
