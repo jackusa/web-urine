@@ -74,6 +74,7 @@ public class UserController {
     redirectAttributes.addFlashAttribute("thatDayNo", thatDayNo);
     redirectAttributes.addFlashAttribute("detectionDate", detectionDate);
     redirectAttributes.addFlashAttribute("user", user);
+    redirectAttributes.addFlashAttribute("isQuery", true);
     if (urine != null) {
       urineUser = iUrineUserService.selectUrineUser(urine.getUrineUserId());
       sendDetection = iSendDetectionService.selectSendDetection(urine.getSendDetectionId());

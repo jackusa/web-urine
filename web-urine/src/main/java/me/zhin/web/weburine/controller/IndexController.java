@@ -70,7 +70,7 @@ public class IndexController {
     SendDetection sendDetection = null;
     List<Urine> urineList = iUrineService.selectUrine(user.getId());
 
-    if (urineList.size() > 0) {
+    if (urineList.size() > 0 && !model.containsAttribute("isQuery")) {
       // 目前只显示一条数据
       for(int i = 0; i < 1; i++) {
         int lastIndex = urineList.size()-1;
